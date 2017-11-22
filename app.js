@@ -51,8 +51,6 @@ function processRequest() {
         thumbnailList.push({src: url, title: result.title, index: i});
       }
       buildDom();
-    } else {
-      alert('There was a problem with the request.');
     }
   }
 }
@@ -69,9 +67,13 @@ function openLightbox(e) {
 
     if (curIndex === 0) {
       toggleDisableButton(ELEMENTS.buttons.PREV, true);
+    } else {
+      toggleDisableButton(ELEMENTS.buttons.PREV, false);
     }
     if(curIndex + 1 === thumbnailList.length) {
       toggleDisableButton(ELEMENTS.buttons.NEXT, true);
+    } else {
+      toggleDisableButton(ELEMENTS.buttons.NEXT, false);
     }
   }
 }
